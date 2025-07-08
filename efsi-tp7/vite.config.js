@@ -3,6 +3,7 @@ import react from '@vitejs/plugin-react'
 
 // https://vite.dev/config/
 export default defineConfig({
-  plugins: [react()],
-  base: '/efsi-tp7/'
+   base: '/efsi-tp7/',
+  plugins: [react()]
+  
 })
