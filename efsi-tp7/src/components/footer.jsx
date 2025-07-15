@@ -1,7 +1,11 @@
+import './footer.css';
+
 const Footer = () => {
   return (
-    <footer className="bg-dark text-white text-center py-3 mt-auto">
-      <p className="mb-0">&copy; 2025 MiTienda - Todos los derechos reservados</p>
+    <footer className="footer">
+      <div className="footer-content">
+        <p>&copy; 2025 MiTienda - Todos los derechos reservados</p>
+      </div>
     </footer>
   );
 };

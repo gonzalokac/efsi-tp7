@@ -1,30 +1,49 @@
-import { useEffect, useState } from 'react';
+import { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import CardProducto from '../components/CardProducto';
 
 const Productos = () => {
-  const { idCategoria } = useParams();
+  const { category } = useParams();
   const [productos, setProductos] = useState([]);
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    const url = idCategoria
-      ? `https://dummyjson.com/products/category/${idCategoria}`
-      : `https://dummyjson.com/products`;
+    const fetchProductos = async () => {
+      try {
+        let url = 'https://dummyjson.com/products';
+        if (category) {
+          url = `https://dummyjson.com/products/category/${category}`;
+        }
 
-    fetch(url)
-      .then(res => res.json())
-      .then(data => setProductos(data.products));
-  }, [idCategoria]);
+        const response = await fetch(url);
+        const data = await response.json();
+        setProductos(data.products || []);
+      } catch (error) {
+        console.error("Error fetching products:", error);
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    fetchProductos();
+  }, [category]);
+
+  if (loading) {
+    return <div className="loading">Cargando productos...</div>;
+  }
 
   return (
-    <section style={{ padding: '2rem' }}>
-      <h1>{idCategoria ? `Categoría: ${idCategoria}` : 'Todos los productos'}</h1>
-      <div style={{ display: 'flex', flexWrap: 'wrap', gap: '1rem' }}>
-        {productos.map(prod => (
-          <CardProducto key={prod.id} producto={prod} />
+    <div className="productos-container">
+      <h1 className="productos-title">
+        {category ? `Productos: ${category.replace(/-/g, ' ')}` : 'Todos los productos'}
+      </h1>
+      
+      <div className="productos-grid">
+        {productos.map((producto) => (
+          <CardProducto key={producto.id} producto={producto} />
         ))}
       </div>
-    </section>
+    </div>
   );
 };
 

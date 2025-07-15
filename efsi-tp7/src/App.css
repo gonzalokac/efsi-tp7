@@ -1,58 +1,24 @@
-/* App.css - inspirado en Samsung.com */
-
+/* App.css */
 body {
   margin: 0;
-  font-family: 'Segoe UI', Roboto, sans-serif;
-  background-color: #f4f6f9;
-  color: #111;
+  padding: 0;
+  font-family: 'SamsungOne', 'Inter', sans-serif;
 }
 
-h1, h2, h3, h4 {
-  color: #1428a0; /* Azul Samsung */
-  font-weight: 600;
+.page-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 2rem;
 }
 
-a {
-  color: #1428a0;
-  text-decoration: none;
+/* Estilos específicos para el contenido principal */
+.main-content {
+  padding: 2rem 0;
 }
 
-a:hover {
-  text-decoration: underline;
-}
-
-.navbar {
-  background-color: #000;
-}
-
-.navbar-brand, .nav-link, .dropdown-item {
-  color: #fff !important;
-}
-
-.navbar .nav-link:hover,
-.navbar .dropdown-item:hover {
-  color: #cccccc !important;
-}
-
-.btn-primary {
-  background-color: #1428a0;
-  border-color: #1428a0;
-}
-
-.btn-primary:hover {
-  background-color: #0f1f7a;
-  border-color: #0f1f7a;
-}
-
-footer {
-  background-color: #000;
-  color: #fff;
-}
-
-.card {
-  transition: transform 0.2s ease;
-}
-
-.card:hover {
-  transform: scale(1.02);
-}
+/* Estilos para cards de productos */
+.product-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 2rem;
+  padding: 2rem 0;}

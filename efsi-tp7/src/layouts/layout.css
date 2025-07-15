@@ -1,0 +1,91 @@
+/* layout.css */
+
+:root {
+  --primary-bg: #f5f7fa;
+  --surface-bg: #ffffff;
+  --accent-color: #007aff;
+  --text-color: #1f1f1f;
+  --border-radius: 1rem;
+  --shadow-light: 0 10px 30px rgba(0, 0, 0, 0.05);
+  --shadow-glow: 0 0 8px rgba(0, 122, 255, 0.15);
+  --transition-fast: 0.3s ease;
+  --font-stack: 'Segoe UI', 'Roboto', 'Helvetica Neue', sans-serif;
+}
+
+body {
+  font-family: var(--font-stack);
+  background-color: var(--primary-bg);
+  color: var(--text-color);
+  margin: 0;
+  
+}
+
+/* Layout Wrapper */
+.layout-wrapper {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+/* Header - tipo "glass" */
+.layout-header {
+  background-color: rgba(255, 255, 255, 0.8);
+  backdrop-filter: blur(12px);
+  box-shadow: var(--shadow-light);
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  transition: background-color var(--transition-fast);
+}
+
+/* Main */
+.layout-main {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 4rem 1.5rem;
+  background: linear-gradient(to bottom, #f5f7fa, #e8ecf1);
+}
+
+/* Container and Card */
+.layout-container {
+  max-width: 960px;
+  width: 100%;
+}
+
+.layout-content {
+  background-color: var(--surface-bg);
+  padding: 3rem;
+  border-radius: var(--border-radius);
+  box-shadow: var(--shadow-light);
+  transition: transform var(--transition-fast), box-shadow var(--transition-fast);
+}
+
+.layout-content:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-glow);
+}
+
+/* Footer */
+.layout-footer {
+  background-color: #111;
+  color: #f0f0f0;
+  text-align: center;
+  padding: 2rem 1rem;
+  font-size: 0.95rem;
+  letter-spacing: 0.5px;
+}
+.main-layout {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+.main-content {
+  flex: 1;
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 2rem;
+}

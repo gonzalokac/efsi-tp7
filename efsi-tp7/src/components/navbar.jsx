@@ -1,83 +1,69 @@
-import { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
-
+import './Navbar.css';
 
 const Navbar = () => {
-  const [categorias, setCategorias] = useState([]);
+  // Categorías predefinidas con productos existentes en dummyjson
+  const categories = [
+    'smartphones',
+    'laptops',
+    'fragrances',
+    'skincare',
+    'groceries',
+    'home-decoration'
+  ];
 
-  useEffect(() => {
-    fetch('https://dummyjson.com/products/categories')
-      .then(res => res.json())
-      .then(data => {
-      const result = Array.isArray(data) ? data : data.categories;
-     if (Array.isArray(result)) {
-    setCategorias(result);
-      } else {
-       console.error("Formato de categorías inesperado:", data);
-    setCategorias([]);
-      }
-    })
-
-  }, []);
+  const formatCategoryName = (category) => {
+    return category
+      .replace(/-/g, ' ')
+      .split(' ')
+      .map(word => word.charAt(0).toUpperCase() + word.slice(1))
+      .join(' ');
+  };
 
   return (
-    <nav className="navbar navbar-expand-lg navbar-dark bg-dark px-4 shadow-sm">
-      <Link className="navbar-brand fw-bold text-uppercase" to="/">MiTienda</Link>
-      <button
-        className="navbar-toggler"
-        type="button"
-        data-bs-toggle="collapse"
-        data-bs-target="#navContent"
-        aria-controls="navContent"
-        aria-expanded="false"
-        aria-label="Toggle navigation"
-      >
-        <span className="navbar-toggler-icon"></span>
-      </button>
-
-      <div className="collapse navbar-collapse" id="navContent">
-        <ul className="navbar-nav ms-auto">
-          <li className="nav-item">
-            <Link className="nav-link" to="/">Home</Link>
-          </li>
-          <li className="nav-item">
-            <Link className="nav-link" to="/QuienesSomos">Quiénes Somos</Link>
-          </li>
-          <li className="nav-item dropdown">
-            <a
-              className="nav-link dropdown-toggle"
-              href="#"
-              id="productosDropdown"
-              role="button"
-              data-bs-toggle="dropdown"
-              aria-expanded="false"
-            >
-              Productos
-            </a>
-            <ul className="dropdown-menu dropdown-menu-scroll" aria-labelledby="productosDropdown">
-              <li>
-                <Link className="dropdown-item fw-semibold" to="/Productos">Ver todos</Link>
-              </li>
-              <li><hr className="dropdown-divider" /></li>
-              {categorias.map((cat, index) => (
-                <li key={`cat-${index}`}>
+    <nav className="navbar">
+      <div className="navbar-container">
+        <Link className="navbar-brand" to="/">CositasOnline</Link>
+        
+        <div className="navbar-menu">
+          <ul className="navbar-nav">
+            <li className="nav-item">
+              <Link className="nav-link" to="/">Home</Link>
+            </li>
+            <li className="nav-item">
+              <Link className="nav-link" to="/QuienesSomos">Quiénes Somos</Link>
+            </li>
+            
+            {/* Menú desplegable de Productos */}
+            <li className="nav-item dropdown">
+              <span className="nav-link dropdown-toggle">Productos</span>
+              
+              <div className="dropdown-menu">
+                <Link className="dropdown-item" to="/Productos">
+                  Ver todos los productos
+                </Link>
+                <div className="dropdown-divider"></div>
+                
+                {categories.map((category) => (
                   <Link
-                    className="dropdown-item text-capitalize"
-                    to={`/Productos/categorias/${encodeURIComponent(cat)}`}
+                    key={category}
+                    className="dropdown-item"
+                    to={`/Productos/categoria/${category}`}
                   >
-                    {cat.replace(/-/g, ' ')}
+                    {formatCategoryName(category)}
                   </Link>
-                </li>
-              ))}
-            </ul>
-          </li>
-          <li className="nav-item">
-            <Link className="nav-link" to="/Contacto">Contacto</Link>
-          </li>
-        </ul>
+                ))}
+              </div>
+            </li>
+            
+            <li className="nav-item">
+              <Link className="nav-link" to="/Contacto">Contacto</Link>
+            </li>
+          </ul>
+        </div>
       </div>
     </nav>
   );
 };
 
-export default Navbar;
+export default Navbar; // Asegúrate de tener esta línea
