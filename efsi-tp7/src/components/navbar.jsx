@@ -2,7 +2,6 @@ import { Link } from 'react-router-dom';
 import './Navbar.css';
 
 const Navbar = () => {
-  // Categorías predefinidas con productos existentes en dummyjson
   const categories = [
     'smartphones',
     'laptops',
@@ -34,7 +33,7 @@ const Navbar = () => {
               <Link className="nav-link" to="/QuienesSomos">Quiénes Somos</Link>
             </li>
             
-            {/* Menú desplegable de Productos */}
+            
             <li className="nav-item dropdown">
               <span className="nav-link dropdown-toggle">Productos</span>
               
@@ -66,4 +65,4 @@ const Navbar = () => {
   );
 };
 
-export default Navbar; // Asegúrate de tener esta línea
+export default Navbar; 

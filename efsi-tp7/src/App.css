@@ -1,4 +1,3 @@
-/* App.css */
 body {
   margin: 0;
   padding: 0;
@@ -11,12 +10,10 @@ body {
   padding: 2rem;
 }
 
-/* Estilos específicos para el contenido principal */
 .main-content {
   padding: 2rem 0;
 }
 
-/* Estilos para cards de productos */
 .product-grid {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));

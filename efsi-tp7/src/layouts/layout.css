@@ -1,4 +1,3 @@
-/* layout.css */
 
 :root {
   --primary-bg: #f5f7fa;
@@ -20,14 +19,12 @@ body {
   
 }
 
-/* Layout Wrapper */
 .layout-wrapper {
   display: flex;
   flex-direction: column;
   min-height: 100vh;
 }
 
-/* Header - tipo "glass" */
 .layout-header {
   background-color: rgba(255, 255, 255, 0.8);
   backdrop-filter: blur(12px);
@@ -38,7 +35,6 @@ body {
   transition: background-color var(--transition-fast);
 }
 
-/* Main */
 .layout-main {
   flex: 1;
   display: flex;
@@ -48,7 +44,6 @@ body {
   background: linear-gradient(to bottom, #f5f7fa, #e8ecf1);
 }
 
-/* Container and Card */
 .layout-container {
   max-width: 960px;
   width: 100%;
@@ -67,7 +62,6 @@ body {
   box-shadow: var(--shadow-glow);
 }
 
-/* Footer */
 .layout-footer {
   background-color: #111;
   color: #f0f0f0;
