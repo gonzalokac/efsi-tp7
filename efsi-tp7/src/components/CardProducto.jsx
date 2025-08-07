@@ -1,7 +1,10 @@
 import { Link } from 'react-router-dom';
 import './CardProducto.css';
+import { useCarrito } from '../context/CarritoContext';
 
 const CardProducto = ({ producto }) => {
+  const { agregarAlCarrito } = useCarrito();
+
   return (
     <div className="product-card">
       <div className="product-image">
@@ -13,6 +16,9 @@ const CardProducto = ({ producto }) => {
         <Link to={`/Productos/${producto.id}`} className="product-button">
           Ver detalles
         </Link>
+        <button className="product-button" onClick={() => agregarAlCarrito(producto)}>
+          Agregar al carrito
+        </button>
       </div>
     </div>
   );

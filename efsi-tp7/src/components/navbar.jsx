@@ -1,5 +1,6 @@
 import { Link } from 'react-router-dom';
 import './Navbar.css';
+import CarritoWidget from './CarritoWidget';
 
 const Navbar = () => {
   const categories = [
@@ -23,7 +24,7 @@ const Navbar = () => {
     <nav className="navbar">
       <div className="navbar-container">
         <Link className="navbar-brand" to="/">CositasOnline</Link>
-        
+
         <div className="navbar-menu">
           <ul className="navbar-nav">
             <li className="nav-item">
@@ -32,17 +33,14 @@ const Navbar = () => {
             <li className="nav-item">
               <Link className="nav-link" to="/QuienesSomos">Quiénes Somos</Link>
             </li>
-            
-            
+
             <li className="nav-item dropdown">
               <span className="nav-link dropdown-toggle">Productos</span>
-              
               <div className="dropdown-menu">
                 <Link className="dropdown-item" to="/Productos">
                   Ver todos los productos
                 </Link>
                 <div className="dropdown-divider"></div>
-                
                 {categories.map((category) => (
                   <Link
                     key={category}
@@ -54,15 +52,17 @@ const Navbar = () => {
                 ))}
               </div>
             </li>
-            
+
             <li className="nav-item">
               <Link className="nav-link" to="/Contacto">Contacto</Link>
             </li>
           </ul>
         </div>
+
+        <CarritoWidget />
       </div>
     </nav>
   );
 };
 
-export default Navbar; 
+export default Navbar;
