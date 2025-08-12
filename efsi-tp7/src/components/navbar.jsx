@@ -1,6 +1,7 @@
+// src/components/Navbar.jsx
 import { Link } from 'react-router-dom';
-import './Navbar.css';
 import CarritoWidget from './CarritoWidget';
+import './Navbar.css';
 
 const Navbar = () => {
   const categories = [
@@ -12,54 +13,57 @@ const Navbar = () => {
     'home-decoration'
   ];
 
-  const formatCategoryName = (category) => {
-    return category
+  const formatCategoryName = (category) =>
+    category
       .replace(/-/g, ' ')
       .split(' ')
       .map(word => word.charAt(0).toUpperCase() + word.slice(1))
       .join(' ');
-  };
 
   return (
     <nav className="navbar">
       <div className="navbar-container">
-        <Link className="navbar-brand" to="/">CositasOnline</Link>
 
-        <div className="navbar-menu">
-          <ul className="navbar-nav">
-            <li className="nav-item">
-              <Link className="nav-link" to="/">Home</Link>
-            </li>
-            <li className="nav-item">
-              <Link className="nav-link" to="/QuienesSomos">Quiénes Somos</Link>
-            </li>
+        {/* Marca */}
+        <Link className="navbar-brand" to="/">
+          CositasOnline
+        </Link>
 
-            <li className="nav-item dropdown">
-              <span className="nav-link dropdown-toggle">Productos</span>
-              <div className="dropdown-menu">
-                <Link className="dropdown-item" to="/Productos">
-                  Ver todos los productos
+        {/* Menú */}
+        <ul className="navbar-nav">
+          <li>
+            <Link to="/" className="nav-link">Home</Link>
+          </li>
+          <li>
+            <Link to="/QuienesSomos" className="nav-link">Quiénes Somos</Link>
+          </li>
+          <li className="dropdown">
+            <span className="nav-link dropdown-toggle">Productos</span>
+            <div className="dropdown-menu">
+              <Link className="dropdown-item" to="/Productos">
+                Ver todos los productos
+              </Link>
+              <div className="dropdown-divider"></div>
+              {categories.map(category => (
+                <Link
+                  key={category}
+                  className="dropdown-item"
+                  to={`/Productos/categoria/${category}`}
+                >
+                  {formatCategoryName(category)}
                 </Link>
-                <div className="dropdown-divider"></div>
-                {categories.map((category) => (
-                  <Link
-                    key={category}
-                    className="dropdown-item"
-                    to={`/Productos/categoria/${category}`}
-                  >
-                    {formatCategoryName(category)}
-                  </Link>
-                ))}
-              </div>
-            </li>
+              ))}
+            </div>
+          </li>
+          <li>
+            <Link to="/Contacto" className="nav-link">Contacto</Link>
+          </li>
+        </ul>
 
-            <li className="nav-item">
-              <Link className="nav-link" to="/Contacto">Contacto</Link>
-            </li>
-          </ul>
+        {/* Carrito a la derecha */}
+        <div className="navbar-cart">
+          <CarritoWidget />
         </div>
-
-        <CarritoWidget />
       </div>
     </nav>
   );
