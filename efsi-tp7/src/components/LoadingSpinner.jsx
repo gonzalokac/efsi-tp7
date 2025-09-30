@@ -1,3 +1,4 @@
+import PropTypes from 'prop-types';
 import './LoadingSpinner.css';
 
 const LoadingSpinner = () => {
@@ -10,5 +11,8 @@ const LoadingSpinner = () => {
     </div>
   );
 };
+
+// LoadingSpinner no recibe props, pero documentamos que no requiere ninguna
+LoadingSpinner.propTypes = {};
 
 export default LoadingSpinner;

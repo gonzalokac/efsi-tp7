@@ -1,7 +1,9 @@
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
+import PropTypes from 'prop-types';
 import './CardProducto.css';
 import { useCarrito } from '../context/CarritoContext';
+import { ProductoShape } from '../shapes/ProductoShape';
 
 const CardProducto = ({ producto }) => {
   const { agregarAlCarrito, estaEnCarrito } = useCarrito();
@@ -58,6 +60,10 @@ const CardProducto = ({ producto }) => {
       </div>
     </div>
   );
+};
+
+CardProducto.propTypes = {
+  producto: ProductoShape.isRequired
 };
 
 export default CardProducto;

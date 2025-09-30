@@ -1,4 +1,5 @@
 import { useState, useEffect, useRef } from 'react';
+import PropTypes from 'prop-types';
 import { useCarrito } from '../context/CarritoContext';
 import './CarritoWidget.css';
 
@@ -143,5 +144,8 @@ const CarritoWidget = () => {
     </div>
   );
 };
+
+// CarritoWidget no recibe props, pero documentamos que no requiere ninguna
+CarritoWidget.propTypes = {};
 
 export default CarritoWidget;

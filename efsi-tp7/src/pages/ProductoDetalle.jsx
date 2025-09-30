@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
+import PropTypes from 'prop-types';
 import { useCarrito } from '../context/CarritoContext';
 
 const ProductoDetalle = () => {
@@ -26,5 +27,8 @@ const ProductoDetalle = () => {
     </div>
   );
 };
+
+// ProductoDetalle no recibe props, pero documentamos que no requiere ninguna
+ProductoDetalle.propTypes = {};
 
 export default ProductoDetalle;

@@ -1,4 +1,5 @@
 import { Link } from 'react-router-dom';
+import PropTypes from 'prop-types';
 import './Home.css';
 
 const Home = () => {
@@ -84,5 +85,8 @@ const Home = () => {
     </div>
   );
 };
+
+// Home no recibe props, pero documentamos que no requiere ninguna
+Home.propTypes = {};
 
 export default Home;

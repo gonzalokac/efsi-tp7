@@ -1,4 +1,5 @@
 import { createContext, useContext, useEffect, useState } from 'react';
+import PropTypes from 'prop-types';
 
 const CarritoContext = createContext();
 
@@ -132,4 +133,9 @@ export const CarritoProvider = ({ children }) => {
       {children}
     </CarritoContext.Provider>
   );
+};
+
+// CarritoProvider recibe children como prop
+CarritoProvider.propTypes = {
+  children: PropTypes.node.isRequired
 };

@@ -1,3 +1,5 @@
+import PropTypes from 'prop-types';
+
 const QuienesSomos = () => {
   return (
     <div className="py-5">
@@ -7,5 +9,8 @@ const QuienesSomos = () => {
     </div>
   );
 };
+
+// QuienesSomos no recibe props, pero documentamos que no requiere ninguna
+QuienesSomos.propTypes = {};
 
 export default QuienesSomos;

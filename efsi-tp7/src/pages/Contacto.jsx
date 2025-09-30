@@ -1,3 +1,4 @@
+import PropTypes from 'prop-types';
 import './Contacto.css';
 
 const Contacto = () => {
@@ -71,5 +72,8 @@ const Contacto = () => {
     </div>
   );
 };
+
+// Contacto no recibe props, pero documentamos que no requiere ninguna
+Contacto.propTypes = {};
 
 export default Contacto;

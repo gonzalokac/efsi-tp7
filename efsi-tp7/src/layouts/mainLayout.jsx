@@ -1,4 +1,5 @@
 import { Outlet } from 'react-router-dom';
+import PropTypes from 'prop-types';
 import Navbar from '../components/navbar';
 import Footer from '../components/footer';
 import './layout.css';
@@ -25,5 +26,8 @@ const MainLayout = () => {
     </div>
   );
 };
+
+// MainLayout no recibe props, pero documentamos que no requiere ninguna
+MainLayout.propTypes = {};
 
 export default MainLayout;

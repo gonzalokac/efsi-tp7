@@ -1,3 +1,4 @@
+import PropTypes from 'prop-types';
 import './footer.css';
 
 const Footer = () => {
@@ -9,5 +10,8 @@ const Footer = () => {
     </footer>
   );
 };
+
+// Footer no recibe props, pero documentamos que no requiere ninguna
+Footer.propTypes = {};
 
 export default Footer;

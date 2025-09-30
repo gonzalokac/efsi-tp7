@@ -1,6 +1,7 @@
 // src/components/Navbar.jsx
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
+import PropTypes from 'prop-types';
 import CarritoWidget from './CarritoWidget';
 import './Navbar.css';
 
@@ -96,5 +97,8 @@ const Navbar = () => {
     </nav>
   );
 };
+
+// Navbar no recibe props, pero documentamos que no requiere ninguna
+Navbar.propTypes = {};
 
 export default Navbar;
